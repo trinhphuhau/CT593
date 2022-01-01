@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <title>React App</title>
+    <style>
+      .rw-carousel-container .rw-carousel-card .rw-carousel-card-image {
+        height: 270px !important;
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
+  <script>
+    !(function () {
+      let e = document.createElement("script"),
+        t = document.head || document.getElementsByTagName("head")[0];
+      (e.src = "../rasa-webchat.js"),
+        (e.async = !0),
+        (e.onload = () => {
+          window.WebChat.default(
+            {
+              // Truyen thong tin dang nhap khach hang vao chatbot
+              customData: JSON.parse(localStorage.getItem("customerInfo")),
+              socketUrl: "http://localhost:5005",
+              socketPath: "/socket.io/",
+              title: "Book Lover",
+              subtitle: "Hân hạnh được phục vụ",
+              // Hien thi thoi gian nhan tin
+              showMessageDate: true,
+              // Loi chao bat dau
+              initPayload: "/greet",
+            },
+            null
+          );
+        }),
+        t.insertBefore(e, t.firstChild);
+    })();
+  </script>
+</html>

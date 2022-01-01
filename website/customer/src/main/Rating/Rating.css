@@ -1,0 +1,254 @@
+.rating {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+  /* align-items: center; */
+}
+
+.rating-total {
+  font-size: 13px;
+  margin-left: 50px;
+}
+
+.rating-total i {
+  margin-right: 2px;
+}
+
+.rating-total-count {
+  display: flex;
+  align-items: center;
+  column-gap: 15px;
+  margin-bottom: 15px;
+}
+
+.rating-total-avg {
+  font-size: 35px;
+  font-weight: 600;
+}
+
+.rating-total-avg-icon {
+  font-size: 20px;
+}
+
+.rating-total-avg-text {
+  margin-top: 5px;
+  font-size: 15px;
+  color: grey;
+}
+
+.rating-review {
+  /* width: 100%; */
+}
+
+.rating-review-text {
+  width: 380px;
+}
+
+.rating-review textarea {
+  width: 100%;
+  resize: none;
+  border-radius: 5px;
+  outline: none;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border: 1px solid rgba(145, 145, 145, 0.2);
+  height: 90px;
+  margin: 10px 0px;
+  text-align: justify;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.rating-review textarea::-webkit-scrollbar {
+  display: none;
+}
+
+.rating-review button {
+  display: block;
+  outline: none;
+  background-color: var(--primary);
+  border: 1px solid rgba(145, 145, 145, 0.2);
+  color: white;
+  font-size: 15px;
+  border-radius: 5px;
+  width: 380px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.rating-review-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+.rated-bar {
+  width: 200px;
+  background-color: rgb(211, 211, 211);
+  z-index: 1;
+  border-radius: 3px;
+}
+
+.rated-bar-process {
+  height: 8px;
+  background-color: rgb(99, 99, 99);
+  z-index: 3;
+  border-radius: 3px;
+}
+
+.rated-chart .flex {
+  column-gap: 7px;
+}
+
+.rated-chart .flex span {
+  color: grey;
+}
+
+.rated-chart-line {
+  margin-top: 3px;
+}
+
+.rated-chart-star {
+  min-width: 84px;
+}
+
+.rated-line {
+  width: calc(100% - 84px);
+}
+
+.rated-item {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 300px auto;
+}
+
+.rated-star i {
+  margin-right: 1px;
+}
+
+.rated-review {
+  margin-top: 10px;
+  font-size: 15px;
+  color: grey;
+  text-align: justify;
+}
+
+.rated-user {
+  display: flex;
+  column-gap: 15px;
+  align-items: center;
+  height: 54px;
+  padding: 10px;
+}
+
+.user-name {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.rated-time {
+  color: grey;
+  font-size: 13px;
+}
+
+.user-avatar img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+/* Star */
+.rating-group {
+  display: inline-flex;
+}
+
+/* make hover effect work properly in IE */
+.rating__icon {
+  pointer-events: none;
+}
+
+/* hide radio inputs */
+.rating__input {
+  position: absolute !important;
+  left: -9999px !important;
+}
+
+/* hide 'none' input from screenreaders */
+.rating__input--none {
+  display: none;
+}
+
+/* set icon padding and size */
+.rating__label i {
+  cursor: pointer;
+  padding: 0 0.05em;
+  font-size: 2rem;
+}
+
+/* set default star color */
+.rating__icon--star {
+  color: orange;
+}
+
+/* if any input is checked, make its following siblings grey */
+.rating__input:checked ~ .rating__label .rating__icon--star {
+  color: #ddd;
+}
+
+/* make all stars orange on rating group hover */
+.rating-group:hover .rating__label .rating__icon--star {
+  color: orange;
+}
+
+/* make hovered input's following siblings grey on hover */
+.rating__input:hover ~ .rating__label .rating__icon--star {
+  color: #ddd;
+}
+
+.not-rated {
+  color: #ddd;
+}
+
+@media (max-width: 576px) {
+}
+
+@media (max-width: 767px) {
+  .rating {
+    display: block;
+  }
+  .rating-total {
+    margin-left: 0;
+  }
+
+  .rated-bar {
+    width: 80%;
+  }
+
+  .rated-line span {
+    width: 20%;
+  }
+
+  .rating-review {
+    margin-top: 30px;
+  }
+
+  .rating-review-text,
+  .rating-review button {
+    width: 100%;
+  }
+
+  .rated-item {
+    margin-top: 20px;
+    display: block;
+  }
+  .rated-detail {
+    margin-top: 10px;
+  }
+}
+
+@media (min-width: 992px) {
+}
+
+@media (min-width: 1200px) {
+}

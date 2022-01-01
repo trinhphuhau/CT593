@@ -1,0 +1,88 @@
+version: "2.0"
+
+stories:
+
+- story: hello and ask
+  steps:
+  - action: utter_greet
+  - action: utter_asking
+
+- story: customer said hi
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_asking
+
+- story: customer need help
+  steps:
+    - intent: need_help
+    - action: utter_asking
+
+- story: did that help you - affirm
+  steps:
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_thank
+  - action: utter_something_again
+
+- story: Did that help you - deny
+  steps:
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_not_help_thank
+  - action: utter_something_again
+
+# - story: are you sure cancel - deny
+#   steps:
+#     - action: utter_rusure_cancel
+#     - intent: deny
+#     - action: action_reset_cancel_order_form
+#     - action: utter_something_again
+
+# - story: are you sure cancel - affirm
+#   steps:
+#     - action: utter_rusure_cancel
+#     - intent: affirm
+#     - action: action_cancel_order
+#     - action: utter_something_again
+#   - intent: affirm
+#   - action: utter_asking
+
+# - story: 2b
+#   steps:
+#   - action: utter_did_that_help
+#   - intent: deny
+#   - action: utter_not_help_thank
+#   - action: utter_something_again
+#   - intent: deny
+#   - action: utter_goodbye
+
+# - story: sad path 1
+#   steps:
+#   - intent: greet
+#   - action: utter_asking
+#   - intent: mood_unhappy
+#   - action: utter_cheer_up
+#   - action: utter_did_that_help
+#   - intent: affirm
+#   - action: utter_happy
+
+# - story: sad path 2
+#   steps:
+#   - intent: greet
+#   - action: utter_asking
+#   - intent: mood_unhappy
+#   - action: utter_cheer_up
+#   - action: utter_did_that_help
+#   - intent: deny
+#   - action: utter_goodbye
+
+# - story: cap nhat thong tin
+#   steps:
+#     - intent: greet
+#     - action: utter_asking
+#     - intent: provide_info
+#     - action: provide_info_form
+#     - active_loop: provide_info_form
+#     - active_loop: null
+#     - action: utter_provide_info

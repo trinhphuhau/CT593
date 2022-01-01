@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+ul {
+  list-style-type: none;
+}
+
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f5f4f7;
+}
+
+textarea {
+  font-family: "Helvetica Neue", sans-serif;
+}
+
+input[type="text"],
+input[type="password"],
+select,
+textarea {
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  border: 1px solid rgba(145, 145, 145, 0.2);
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  box-shadow: 0px 0px 2px rgba(0, 120, 255, 0.35);
+  border: 1px solid rgba(0, 120, 255, 0.35);
+  background-color: white;
+}
+
+input.error,
+select.error {
+  box-shadow: 0px 0px 2px rgba(255, 0, 0, 0.35);
+  border: 1px solid red;
+}

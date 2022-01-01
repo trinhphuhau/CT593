@@ -1,0 +1,50 @@
+.confirm {
+  background-color: white;
+  border-radius: 10px;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 0px 5px rgb(45 45 45 / 20%);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.4s;
+}
+
+.confirm.active {
+  top: 50%;
+  opacity: 1;
+  visibility: visible;
+  z-index: 101;
+}
+
+.confirm-question {
+  font-size: 20px;
+  text-align: center;
+  padding: 20px 30px;
+  border-bottom: 1px solid rgb(190, 190, 190);
+}
+
+.confirm-button button {
+  padding: 13px;
+  border: none;
+  width: 50%;
+  font-size: 20px;
+  background-color: white;
+  transition: 0.3s;
+  color: var(--primary);
+  cursor: pointer;
+}
+
+.confirm-button button:hover {
+  background-color: #007bff2d;
+  transition: 0.3s;
+}
+
+.confirm-button button.btn-1 {
+  border-radius: 0 0 0 10px;
+}
+
+.confirm-button button.btn-2 {
+  border-radius: 0 0 10px 0;
+}

@@ -1,0 +1,49 @@
+.customer-info-formgroup {
+  display: flex;
+  justify-content: space-between;
+}
+
+.customer-info {
+  width: 100%;
+}
+
+.customer-info label {
+  /* margin-top: 20px; */
+  font-size: 17px;
+  font-weight: 500;
+  display: block;
+}
+
+.customer-info input[type="text"],
+.customer-info select {
+  width: 275px;
+  height: 40px;
+  padding: 7px;
+  font-size: 15px;
+  outline: none;
+  margin-top: 7px;
+}
+
+.customer-info textarea {
+  width: 100%;
+  height: 100px;
+  resize: none;
+  font-size: 15px;
+  padding: 7px;
+  outline: none;
+  margin-top: 7px;
+}
+
+@media (max-width: 767px) {
+  .customer-info-formgroup {
+    display: block;
+  }
+
+  .customer-info input[type="text"],
+  .customer-info select {
+    width: 100%;
+  }
+  .customer-info label {
+    margin-top: 15px;
+  }
+}

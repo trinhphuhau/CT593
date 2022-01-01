@@ -1,0 +1,263 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - thank
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - provide_info
+  - inform_username
+  - find_order_status
+  - inform_order_id
+  - inform_book_title
+  - find_order_detail
+  - find_new_book
+  - find_book
+  - cancel_order
+  - return_order
+  - find_promotion
+  - need_help
+  - how_to_order
+  - ask_order_time
+
+entities:
+  - username
+  - order_id
+  - book_title
+  - seller_note
+  - seller_note_return
+  - author
+
+actions:
+  - action_default_fallback
+  - action_find_order_status
+  - action_find_order_detail
+  - action_find_new_book
+  - action_find_book
+  - action_cancel_order
+  - action_reset_cancel_order_form
+  - action_reset_return_order_form
+  - action_find_promotion
+  - action_return_order
+
+slots:
+  username:
+    type: text
+    auto_fill: false
+    influence_conversation: false
+
+  age:
+    type: text
+    auto_fill: false
+    influence_conversation: false
+
+  order_id:
+    type: text
+    auto_fill: false
+    influence_conversation: false
+
+  book_title:
+    type: text
+    auto_fill: false
+    influence_conversation: false
+
+  seller_note:
+    type: text
+    auto_fill: false
+    influence_conversation: false
+
+  seller_note_return:
+    type: text
+    auto_fill: false
+    influence_conversation: false
+
+forms:
+  cancel_order_form:
+    required_slots:
+      order_id:
+        - type: from_entity
+          entity: order_id
+      seller_note:
+        - type: from_text
+
+  return_order_form:
+    required_slots:
+      order_id:
+        - type: from_entity
+          entity: order_id
+      seller_note_return:
+        - type: from_text
+
+  provide_info_form:
+    required_slots:
+      username:
+        - type: from_entity
+          entity: username
+      age:
+        - type: from_text
+  
+  find_order_status_form:
+    required_slots:
+      order_id:
+        - type: from_entity
+          entity: order_id
+
+  find_order_detail_form:
+    required_slots:
+      order_id:
+        - type: from_entity
+          entity: order_id
+
+  find_book_form:
+    required_slots:
+      book_title:
+        - type: from_entity
+          entity: book_title
+
+responses:
+  utter_greet:
+  - text: "Xin chào bạn! Mình là chuyên viên chăm sóc khách hàng tự động của Book Lover 👋"
+  - text: "Chào đằng ấy! Mình là chuyên viên chăm sóc khách hàng tự động của Book Lover 😊"
+  - text: "Chào bạn nhé! Mình là chuyên viên chăm sóc khách hàng tự động của Book Lover 🥰"
+
+  utter_asking:
+  - text: "Mình có thể giúp gì được cho bạn?"
+    buttons:
+      - title: "Giới thiệu sách mới"
+        payload: "Giới thiệu sách mới"
+      - title: "Chương trình khuyến mãi"
+        payload: "Chương trình khuyến mãi"
+      - title: "Xem tình trạng đơn hàng"
+        payload: "Xem tình trạng đơn hàng"
+      - title: "Xem chi tiết đơn hàng"
+        payload: "Xem chi tiết đơn hàng"
+      - title: "Hỗ trợ hủy đơn"
+        payload: "Hỗ trợ hủy đơn"
+      - title: "Hỗ trợ trả hàng"
+        payload: "Hỗ trợ trả hàng"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Câu trả lời của mình có giúp cho bạn không?"
+
+  utter_happy:
+  - text: "Tuyệt vời lắm!"
+  - text: "Mình mừng lắm!"
+  - text: "Mừng quá đi 🥳"
+    image: "https://c.tenor.com/n9u7zcGqlUQAAAAj/cute-hamster.gif"
+
+  utter_thank:
+  - text: "Cảm ơn bạn ❤️"
+    image: "https://c.tenor.com/jI5PvimqeyQAAAAM/cute-bear.gif"
+  - text: "Cảm ơn bạn nhiều lắm ❤️"
+    image: "https://c.tenor.com/f4pCeAA3XIkAAAAM/thanks-thank.gif"
+  - text: "Cảm ơn bạn rất nhiều ❤️"
+    image: "https://c.tenor.com/n9u7zcGqlUQAAAAj/cute-hamster.gif"
+
+  utter_not_help_thank:
+  - text: "Cảm ơn bạn, lần sau mình sẽ cố gắng hơn"
+    image: "https://c.tenor.com/KKsX1Uwgz44AAAAj/tonton-tonton-friends.gif"
+  - text: "Cảm ơn nhận xét của bạn, mình sẽ rút kinh nghiệm"
+    image: "https://c.tenor.com/bCyay2XeWwQAAAAi/gabby-thank-you.gif"
+
+  utter_goodbye:
+  - text: "Tạm biệt bạn nhé, chúc bạn một ngày tốt lành 😊"
+    image: "https://c.tenor.com/snEGvecmVsAAAAAM/puffybear-puffy.gif"
+  - text: "Tạm biệt bạn nhé, nếu cần gì thì hãy tìm đến mình 🤹‍♀️"
+    image: "https://c.tenor.com/wJ1f-nu2nggAAAAj/wave-bye.gif"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_ask_username:
+  - text: "What's your name?"
+
+  utter_ask_age:
+  - text: "How old are you?"
+
+  utter_provide_info:
+  - text: "- Name: {username}\n
+           - Age: {age}"
+
+  utter_ask_order_id:
+  - text: "Vui lòng nhập mã đơn hàng"
+  - text: "Bạn hãy nhập mã đơn hàng"
+  - text: "Hãy cho mình biết mã đơn hàng"
+
+  utter_ask_book_title:
+  - text: "Hãy cho mình biết tên sản phẩm"
+  - text: "Xin bạn hãy nhập tên sản phẩm"
+
+  utter_something_again:
+  - text: "Mình còn có thể giúp gì cho bạn không?"
+  - text: "Bạn còn muốn mình giúp gì không?"
+  - text: "Bạn còn muốn mình tư vấn thêm gì không?"
+
+  utter_required_login:
+  - text: "Bạn cần đăng nhập mới có thể thực hiện được thao tác này 🥲"
+  - text: "Bạn chưa đăng nhập nên mình không thực hiện được 🥲"
+  - text: "Ôi không, bạn chưa đăng nhập rồi 🥲"
+  - text: "Hãy đăng nhập trước khi thực hiện giúp mình nhé 🥲"
+
+  utter_ask_seller_note:
+  - text: "Hãy cho bọn mình biết lý do bạn muốn hủy đơn hàng nhé 🥲"
+    buttons:
+      - title: "Thay đổi địa chỉ"
+        payload: "Thay đổi địa chỉ"
+      - title: "Đổi ý không muốn mua"
+        payload: "Đổi ý không muốn mua"
+      - title: "Gặp sự cố bất ngờ"
+        payload: "Gặp sự cố bất ngờ"
+
+  utter_ask_seller_note_return:
+  - text: "Hãy cho bọn mình biết lý do bạn muốn trả hàng nhé 🥲"
+    buttons:
+      - title: "Giao sai sản phẩm"
+        payload: "Giao sai sản phẩm"
+      - title: "Sản phẩm bị hư hại"
+        payload: "Sản phẩm bị hư hại"
+      - title: "Chưa nhận được hàng"
+        payload: "Chưa nhận được hàng"
+
+  utter_rusure_cancel:
+  - text: "Mã đơn hàng: {order_id} \n\n
+          Lý do trả hàng: {seller_note} \n\n
+          Bạn có chắc chắn muốn hủy đơn hàng này không?"
+    buttons:
+      - title: "Không cần hủy"
+        payload: "Không cần hủy"
+      - title: "Chắc chắn"
+        payload: "Chắc chắn"
+
+  utter_rusure_return:
+  - text: "Mã đơn hàng: {order_id} \n\n
+          Lý do hủy: {seller_note_return} \n\n
+          Bạn có chắc chắn muốn trả hàng chứ?"
+    buttons:
+      - title: "Không cần nữa"
+        payload: "Không cần nữa"
+      - title: "Chắc chắn"
+        payload: "Chắc chắn"
+
+  utter_out_of_scope:
+    - text: "Xin lỗi, mình chưa thể xử lí được yêu cầu này của bạn 😥"
+
+  utter_please_rephrase:
+  - text: "Xin lỗi bạn, mình thể chưa hiểu được 😫"
+
+  utter_how_to_order:
+  - text: "Đơn giản thôi mà, bạn chỉ cần đăng ký tài khoản thành viên rồi thêm hàng vào giỏ sau đó là tiến hành đặt hàng là được 🥰"
+
+  utter_answer_order_time:
+  - text: "Thông thường thì mỗi đơn hàng sẽ được đến tay bạn trong vòng 3-5 ngày thôi đó 🥳"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

@@ -1,0 +1,108 @@
+.rated-item {
+  /* margin-top: 50px; */
+  display: grid;
+  grid-template-columns: 300px auto;
+}
+
+.rated-star i {
+  margin-right: 1px;
+}
+
+.rated-review {
+  margin-top: 10px;
+  font-size: 15px;
+  color: grey;
+  text-align: justify;
+}
+
+.rated-user {
+  display: flex;
+  column-gap: 15px;
+  align-items: center;
+  height: 54px;
+  padding: 10px;
+}
+
+.user-name {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.rated-time {
+  color: grey;
+  font-size: 13px;
+}
+
+.rated-detail-title {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 10px;
+}
+
+.rated-detail-title button {
+  width: 43px;
+  height: 39.33px;
+}
+
+.rated-detail-title a {
+  width: 80%;
+}
+
+.user-avatar img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+/* Star */
+.rating-group {
+  display: inline-flex;
+}
+
+/* make hover effect work properly in IE */
+.rating__icon {
+  pointer-events: none;
+}
+
+/* hide radio inputs */
+.rating__input {
+  position: absolute !important;
+  left: -9999px !important;
+}
+
+/* hide 'none' input from screenreaders */
+.rating__input--none {
+  display: none;
+}
+
+/* set icon padding and size */
+.rating__label i {
+  cursor: pointer;
+  padding: 0 0.05em;
+  font-size: 2rem;
+}
+
+/* set default star color */
+.rating__icon--star {
+  color: orange;
+}
+
+/* if any input is checked, make its following siblings grey */
+.rating__input:checked ~ .rating__label .rating__icon--star {
+  color: #ddd;
+}
+
+/* make all stars orange on rating group hover */
+.rating-group:hover .rating__label .rating__icon--star {
+  color: orange;
+}
+
+/* make hovered input's following siblings grey on hover */
+.rating__input:hover ~ .rating__label .rating__icon--star {
+  color: #ddd;
+}
+
+.not-rated {
+  color: #ddd;
+}

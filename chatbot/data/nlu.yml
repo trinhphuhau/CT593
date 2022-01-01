@@ -1,0 +1,289 @@
+version: "2.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - xin chào
+    - chào
+    - chào buổi sáng
+    - sáng vui vẻ
+    - chào buổi tối
+    - tối vui vẻ
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+    - tạm biệt
+    - bái bai
+    - bai
+
+- intent: need_help
+  examples: |
+    - tôi cần tư vấn
+    - tôi muốn tư vấn
+    - hãy tư vấn
+    - tu van toi
+    - được tư vấn
+    - tôi cần bạn giúp
+    - help me
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - chính xác
+    - đúng
+    - đúng vậy
+    - có
+    - cần
+    - yeah
+    - đồng ý
+    - chắc chắn
+    - Chắc chắn
+    - xuất xắc
+    - tuyệt vời
+    - tuyệt vời ông mặt trời
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - không cần
+    - không
+    - hông
+    - đủ rồi
+    - không đồng ý
+    - không cần hủy
+    - không cần nữa
+
+- intent: thank
+  examples: |
+    - cảm ơn
+    - cảm ơn bạn
+    - thank you
+    - thanks
+    - thank
+    - cám ơn
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: provide_info
+  examples: |
+    - cap nhat thong tin
+    - cập nhật thông tin
+    - tôi muốn cập nhật thông tin
+
+- intent: inform_username
+  examples: |
+    - Tôi tên là [Hau](username)
+    - [Hau](username)
+    - [Phu Hau](username)
+    - [Trinh Phu Hau](username)
+    - [Trinh Nguyen Van A](username)
+    - Tôi là [Hau](username)
+
+- intent: inform_order_id
+  examples: |
+    - Đơn hàng [54](order_id)
+    - [12](order_id)
+    - Mã đơn hàng là [123](order_id)
+    - Đơn hàng tôi cần tìm [1](order_id)
+
+- intent: find_order_status
+  examples: |
+    - Kiểm tra tình trạng đơn hàng
+    - Kiểm tra trạng thái đơn hàng
+    - Kiểm tra trạng thái đơn hàng [1](order_id)
+    - Trạng thái đơn hàng [12](order_id)
+    - Tôi muốn kiểm tra tình trạng đơn hàng [123](order_id)
+    - Kiểm tra tình trạng đơn hàng
+
+- intent: find_order_detail
+  examples: |
+    - Tôi muốn xem chi tiết đơn hàng
+    - Chi tiết đơn hàng
+    - Kiểm tra chi tiết đơn hàng
+    - Chi tiết đơn hàng [1](order_id)
+    - Kiểm tra chi tiết đơn hàng [12](order_id)
+    - Tôi muốn xem chi tiết đơn hàng [123](order_id)
+
+- intent: find_new_book
+  examples: |
+    - Tôi muốn xem các sản phẩm mới
+    - Sản phẩm mới
+    - Xem sản phẩm mới
+
+- intent: find_book
+  examples: |
+    - Tôi muốn tìm sản phẩm
+    - Tôi muốn tìm sách
+    - Tôi muốn tìm sản phẩm [book](book_title)
+    - Tôi muốn tìm sản phẩm [ngày xưa](book_title)
+    - Tôi muốn tìm sản phẩm [vợ nhặt](book_title)
+    - Tôi muốn tìm sản phẩm [Chí Phèo](book_title) của [nhà văn Ngô Tất Tố](author)
+    - Sản phẩm [book](book_title) còn hàng không?
+    - Sản phẩm [ố la la](book_title) còn hàng không?
+    - Tôi cần tìm sản phẩm [The Mambo Kings](book_title)
+    - Tôi muốn tìm sách [alibaba](book_title) của [gaga](author)
+    - Tôi muốn tìm sách [The Story of My Life](book_title)
+    - Tôi muốn tìm sách [123](book_title)
+    - Sach [command past](book_title) của [Scott Fitzgerald](author)
+    - sản phẩm [The Story of](book_title) còn hàng không?
+    - san pham [Maybe in Another Life](book_title) con hang khong
+    - sach [Still Life with Woodpecker](book_title) con hang khong
+    - san pham [12354](book_title) của [Ngô Tất Tố](author)
+    - sachs [nghệ thuật](book_title)
+    - Tìm sản phẩm [Chí Phèo](book_title) của Ngô Tất Tố
+    - Tìm sản phẩm [Nghệ thuật giảng dạy](book_title)
+    - Tìm sách [Cha mẹ thời đại kỹ thuật số](book_title)
+    - Tìm sản phẩm [việc làng ta](book_title)
+    - tìm sách [việc làng](book_title)
+    - quyền [kính vạn hoa](book_title)
+    - tim tac pham [nuoi con khon lon](book_title) cua nha van (nam cao)[author]
+
+- intent: inform_book_title
+  examples: |
+    - [lady gaga](book_title)
+    - [The Mauritius Command](book_title)
+    - Sản phẩm tôi cần tìm là [book](book_title)
+    - sách tôi cần tìm là [lady gaga](book_title)
+    - sách là [lana del rey](book_title)
+    - sản phẩm [cô gái xì tin](book_title)
+    - san pham [bad romance](book_title)
+    - [tuyển tập nam cao](book_title)
+    - [đời thừa](book_title)
+    - [Phương pháp giáo dục đặc biệt của cha mẹ Hà Lan](book_title)
+    - [chết](book_title)
+
+- intent: cancel_order
+  examples: |
+    - tôi muốn hủy đơn hàng
+    - tui huy don hang
+    - hủy đơn hàng
+    - huy don hang
+    - Hủy đơn hàng
+    - huyr ddonw hangf
+    - hủy đơn hang
+    - huy don
+    - hủy đơn
+    - hủy đơn hàng [1](order_id)
+    - huy don hang [123](order_id)
+    - huyr ddonw hangf [12](order_id)
+    - hủy đơn [1](order_id)
+    - huy don [1232](order_id)
+    - tôi không muốn đặt hàng nữa
+    - tui không muốn đặt hàng nữa
+    - toi hông muôns đặt hàng
+
+- intent: find_promotion
+  examples: |
+    - chuong trinh khuyen mai
+    - hãy cho tôi biết các chương trình khuyến mãi
+    - chương trình khuyến mãi hiện tại
+    - các khuyến mãi hiện tại
+    - tôi muốn biết khuyến mãi
+    - có khuyến mãi gì không
+    - khuyen mai
+
+- intent: return_order
+  examples: |
+    - tôi muốn trả lại hàng
+    - tui muon tra hang
+    - tôi cần trả hàng
+    - tui can tra hang
+    - tôi trả đơn hàng [1](order_id)
+    - trả đơn hàng [98](order_id)
+    - tra hang [546](order_id)
+
+- intent: out_of_scope
+  examples: |
+    - Bây giờ là mấy giờ
+    - Thời tiết hôm nay thế nào
+    - Tình yêu là gì
+    - Làm thế nào để qua môn
+
+- intent: how_to_order
+  examples: |
+    - làm thế nào để đặt hàng
+    - đặt hàng như thế nào
+    - phải làm sao để mua hàng
+    - đặt hàng bằng cách nào
+    - quy trình đặt hàng
+
+- intent: ask_order_time
+  examples: |
+    - đơn hàng mất bao lâu để đến
+    - thời gian đặt hàng là bao lâu
+    - bao lâu thì tôi nhận được hàng
+    - được giao trong bao lâu

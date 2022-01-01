@@ -1,0 +1,31 @@
+.navigation-mobile {
+  /* height: 50px; */
+  padding: 7px;
+  width: 100%;
+  background-color: #fcfcfc;
+  position: fixed;
+  bottom: 0;
+  box-shadow: 0px 0px 5px rgb(45 45 45 / 20%);
+  z-index: 100;
+  display: none;
+}
+
+.navigation-mobile ul {
+  display: flex;
+  justify-content: center;
+}
+
+.navigation-mobile li {
+  margin: 0 40px;
+  cursor: pointer;
+}
+
+.navigation-mobile .active svg {
+  fill: var(--primary);
+}
+
+@media (max-width: 767px) {
+  .navigation-mobile {
+    display: block;
+  }
+}

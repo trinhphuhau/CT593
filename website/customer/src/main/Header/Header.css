@@ -1,0 +1,143 @@
+.header {
+  width: 100%;
+  margin-bottom: 20px;
+  height: auto;
+  position: relative;
+}
+
+.navigation {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#headerMobile {
+  display: none;
+}
+
+.navigation-user {
+  margin: 0px 10px;
+  display: flex;
+  column-gap: 20px;
+  cursor: pointer;
+}
+
+.navigation-link {
+  display: flex;
+  column-gap: 30px;
+  font-size: 1.2em;
+  font-weight: 500;
+}
+
+.navigation-link li {
+  font-size: 25px;
+  font-weight: 600;
+  margin: 10px 0px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+  color: rgba(199, 199, 199, 0.7);
+}
+
+.navigation-link li h1 {
+  font-size: 30px;
+}
+
+.navigation-link li .active {
+  color: black;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 400px;
+}
+
+.navigation-link li a {
+  color: rgba(199, 199, 199, 0.7);
+  display: block;
+}
+
+/* .navigation-link li > span {
+  margin-top: 3px;
+  margin-left: 10px;
+} */
+
+/* .navigation-link li:after, .navigation-link li.active:after {
+  content: '';
+  display: block;
+  border-bottom: 3px solid black;
+  border-radius: 3px;
+  transition: 250ms ease-in-out;
+  margin-top: 5px;
+}
+
+.navigation-link li:after {
+  transform: scaleX(0);
+}
+
+.navigation-link li.active:after {
+  transform: scaleX(1);
+}
+
+.navigation-link li:hover:after {
+  transform: scaleX(1);
+} */
+
+.navigation-link li.active a {
+  color: black;
+}
+
+.badge {
+  font-size: 10px;
+  color: white;
+  background-color: red;
+  padding: 2px 5px;
+  border-radius: 50%;
+  border: 2px solid white;
+  font-weight: 500;
+}
+
+.cart-icon {
+  position: relative;
+}
+
+.cart-icon .badge {
+  position: absolute;
+  right: -1px;
+  top: -8px;
+}
+
+@media (max-width: 576px) {
+}
+@media (max-width: 767px) {
+  .header {
+    margin-bottom: 10px;
+  }
+
+  .navigation-user {
+    display: none;
+  }
+
+  #header {
+    display: none;
+  }
+  
+  #headerMobile {
+    display: block;
+  }
+
+  .navigation-link span.active {
+    position: relative;
+    top: -3px;
+  }
+  
+  .navigation-link li .active {
+    width: unset;
+  }
+}
+@media (min-width: 992px) {
+}
+@media (min-width: 1200px) {
+}

@@ -1,0 +1,186 @@
+version: "2.0"
+
+rules:
+
+- rule: out-of-scope
+  steps:
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+
+- rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+  steps:
+  - intent: nlu_fallback
+  - action: utter_please_rephrase
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Ask something else - deny
+  steps:
+  - action: utter_something_again
+  - intent: deny
+  - action: utter_goodbye
+
+- rule: Ask something else - affirm
+  steps:
+  - action: utter_something_again
+  - intent: affirm
+  - action: utter_asking
+
+- rule: Active provide_info_form
+  steps:
+    - intent: provide_info
+    - action: provide_info_form
+    - active_loop: provide_info_form
+
+- rule: Submit provide_info_form
+  condition:
+  - active_loop: provide_info_form
+  steps:
+    - action: provide_info_form
+    - active_loop: null
+    - action: utter_provide_info
+
+# Tìm tình trạng đơn hàng
+- rule: Active find_order_status_form
+  steps:
+    - intent: find_order_status
+    - action: find_order_status_form
+    - active_loop: find_order_status_form
+
+- rule: Submit find_order_status_form
+  condition:
+  - active_loop: find_order_status_form
+  steps:
+    - action: find_order_status_form
+    - active_loop: null
+    - action: action_find_order_status
+    - action: utter_did_that_help
+
+# Tìm chi tiết đơn hàng
+- rule: Active find_order_detail_form
+  steps:
+    - intent: find_order_detail
+    - action: find_order_detail_form
+    - active_loop: find_order_detail_form
+
+- rule: Submit find_order_detail_form
+  condition:
+  - active_loop: find_order_detail_form
+  steps:
+    - action: find_order_detail_form
+    - active_loop: null
+    - action: action_find_order_detail
+    - action: utter_did_that_help
+
+# Giới thiệu sách mới
+- rule: Find new book
+  steps:
+    - intent: find_new_book
+    - action: action_find_new_book
+    - action: utter_did_that_help
+
+# Chương trình khuyến mãi
+- rule: Find promotion
+  steps:
+    - intent: find_promotion
+    - action: action_find_promotion
+    - action: utter_did_that_help
+
+# Tìm sách
+- rule: Active find_book_form
+  steps:
+    - intent: find_book
+    - action: find_book_form
+    - active_loop: find_book_form
+
+- rule: Active find_book_form
+  steps:
+    - intent: inform_book_title
+    - action: find_book_form
+    - active_loop: find_book_form
+
+- rule: Submit find_book_form
+  condition:
+  - active_loop: find_book_form
+  steps:
+    - action: find_book_form
+    - active_loop: null
+    - action: action_find_book
+    - action: utter_did_that_help
+
+#Hủy đơn hàng
+- rule: Active cancel_order_form
+  steps:
+    - intent: cancel_order
+    - action: cancel_order_form
+    - active_loop: cancel_order_form
+
+- rule: Submit cancel_order_form
+  condition:
+  - active_loop: cancel_order_form
+  steps:
+    - action: cancel_order_form
+    - active_loop: null
+    - action: utter_rusure_cancel
+
+- rule: Ask if customer really want to cancel order - deny
+  steps:
+    - action: utter_rusure_cancel
+    - intent: deny
+    - action: action_reset_cancel_order_form
+    - action: utter_something_again
+
+- rule: Ask if customer really want to cancel order - affirm
+  steps:
+    - action: utter_rusure_cancel
+    - intent: affirm
+    - action: action_cancel_order
+    - action: utter_something_again
+
+#Hoàn hàng
+- rule: Active return_order_form
+  steps:
+    - intent: return_order
+    - action: return_order_form
+    - active_loop: return_order_form
+
+- rule: Submit return_order_form
+  condition:
+  - active_loop: return_order_form
+  steps:
+    - action: return_order_form
+    - active_loop: null
+    - action: utter_rusure_return
+
+- rule: Ask if customer really want to return order - deny
+  steps:
+    - action: utter_rusure_return
+    - intent: deny
+    - action: action_reset_return_order_form
+    - action: utter_something_again
+
+- rule: Ask if customer really want to return order - affirm
+  steps:
+    - action: utter_rusure_return
+    - intent: affirm
+    - action: action_return_order
+    - action: utter_something_again
+
+#FAG
+- rule: how to order
+  steps:
+    - intent: how_to_order
+    - action: utter_how_to_order
+
+- rule: answer order time
+  steps:
+    - intent: ask_order_time
+    - action: utter_answer_order_time
