@@ -154,8 +154,8 @@ app.post("/ordering", authenticateToken, (req, res) => {
     } = req.body;
     connection.query(
       "INSERT INTO `orders` (`user_id`, `name`, `phone`, `address`, `note`, `total_price`, " +
-        "`shipping_fee`, `voucher`, `discount`, `matp`, `maqh`, `xaid`, `status_id`, `payment_method`) " +
-        "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+        "`shipping_fee`, `voucher`, `discount`, `matp`, `maqh`, `xaid`, `status_id`, `payment_method`, `paid`) " +
+        "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,0)",
       [
         user_id,
         name,
@@ -551,43 +551,54 @@ app.post("/recommend", (req, res) => {
   }
 });
 
-const PythonShell = require("python-shell").PythonShell;
 app.get("/get-recommend-content-based", (req, res) => {
-  let id = req.query.id;
-  let options = {
-    args: [id],
-  };
-  PythonShell.run("contentbased.py", options, function (err, results) {
-    if (err) throw err;
-    let book_id = results.toString().replace(/[\[\]']+/g, "");
-    if (book_id !== "0") {
-      connection.query(
-        "SELECT * FROM books WHERE book_id IN (" +
-          book_id +
-          ") AND status = 1 AND deleted_date IS NULL",
-        (err, result) => {
-          if (err) console.log(err);
-          else {
-            if (result.length > 0) {
-              res.json({ title: "Có thể bạn cũng thích", data: result });
-            }
-          }
+  connection.query(
+    "SELECT * FROM books ORDER BY book_id DESC LIMIT 0, 5",
+    (err, result) => {
+      if (err) console.log(err);
+      else {
+        if (result.length > 0) {
+          res.json({ title: "Sách mới", data: result });
         }
-      );
-    } else {
-      connection.query(
-        "SELECT * FROM books ORDER BY book_id DESC LIMIT 0, 5",
-        (err, result) => {
-          if (err) console.log(err);
-          else {
-            if (result.length > 0) {
-              res.json({ title: "Sách mới", data: result });
-            }
-          }
-        }
-      );
+      }
     }
-  });
+  );
+  // const PythonShell = require("python-shell").PythonShell;
+  // let id = req.query.id;
+  // let options = {
+  //   args: [id],
+  // };
+  // PythonShell.run("contentbased.py", options, function (err, results) {
+  //   if (err) throw err;
+  //   let book_id = results.toString().replace(/[\[\]']+/g, "");
+  //   if (book_id !== "0") {
+  //     connection.query(
+  //       "SELECT * FROM books WHERE book_id IN (" +
+  //         book_id +
+  //         ") AND status = 1 AND deleted_date IS NULL",
+  //       (err, result) => {
+  //         if (err) console.log(err);
+  //         else {
+  //           if (result.length > 0) {
+  //             res.json({ title: "Có thể bạn cũng thích", data: result });
+  //           }
+  //         }
+  //       }
+  //     );
+  //   } else {
+  //     connection.query(
+  //       "SELECT * FROM books ORDER BY book_id DESC LIMIT 0, 5",
+  //       (err, result) => {
+  //         if (err) console.log(err);
+  //         else {
+  //           if (result.length > 0) {
+  //             res.json({ title: "Sách mới", data: result });
+  //           }
+  //         }
+  //       }
+  //     );
+  //   }
+  // });
 });
 
 //Order History
@@ -766,6 +777,6 @@ app.post("/admin/login", (req, res) => {
   );
 });
 
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });

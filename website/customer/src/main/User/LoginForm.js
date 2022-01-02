@@ -79,7 +79,16 @@ function LoginForm(props) {
             setRegisterMessage(res.data.message);
           }
         })
-      : onLogin(e);
+      : Axios.post("http://localhost:3001/add-favorite", {
+          favorite: ["tn", "vh", "kn", "gd", "xh", "kd"],
+          username: loginInfo.username,
+        }).then((res) => {
+          if (res.data.message === "success") {
+            onLogin(e);
+          } else {
+            setRegisterMessage(res.data.message);
+          }
+        });
   };
 
   const [loginInfo, setLoginInfo] = useState({
